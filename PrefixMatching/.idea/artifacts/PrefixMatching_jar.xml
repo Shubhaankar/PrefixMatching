@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PrefixMatching:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PrefixMatching_jar</output-path>
+    <root id="archive" name="PrefixMatching.jar">
+      <element id="module-output" name="PrefixMatching" />
+      <element id="module-test-output" name="PrefixMatching" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.1/slf4j-api-2.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/2.0.1/slf4j-simple-2.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
