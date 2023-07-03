@@ -1,11 +1,24 @@
 package com.tc.prefixmatcher.model;
 
+
+/**
+ * A class representing a node in a Trie data structure.
+ *
+ * Each TrieNode has an array of child nodes and a boolean flag indicating whether it represents
+ * the end of a prefix. The array of children is an array of 95 elements representing ASCII characters
+ * from 32 to 127, each pointing to a child TrieNode or null. The isEndOfPrefix flag
+ * indicates whether this node represents the end of a prefix in the Trie.
+ *
+ * Methods:
+ * - getChildren(): Returns the array of child nodes.
+ * - setEndOfPrefix(boolean isEndOfPrefix): Sets the isEndOfPrefix flag.
+ */
 public class TrieNode {
     TrieNode[] children;
     boolean isEndOfPrefix;
 
     TrieNode() {
-        this.children = new TrieNode[95]; // 26 letters in lowercase + 26 in uppercase + 10 digits = 62, 'A' is 65, '0' is 48, so 122-65=57 + 1 = 58
+        this.children = new TrieNode[95]; // 32-127
         this.isEndOfPrefix = false;
     }
 

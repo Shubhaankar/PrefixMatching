@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > PrefixMatcher</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.tc.prefixmatcher.model</a>
+</div>
+
+<h1>Coverage Summary for Class: PrefixMatcher (com.tc.prefixmatcher.model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PrefixMatcher</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (23/23)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tc.prefixmatcher.model;
+&nbsp;
+&nbsp;import com.tc.prefixmatcher.config.Constants;
+&nbsp;
+&nbsp;public class PrefixMatcher {
+&nbsp;    private final TrieNode root;
+&nbsp;
+<b class="fc">&nbsp;    public PrefixMatcher() {</b>
+<b class="fc">&nbsp;        root = new TrieNode();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void addPrefix(String prefix) {
+<b class="fc">&nbsp;        TrieNode node = root;</b>
+<b class="fc">&nbsp;        for (char c : prefix.toCharArray()) {</b>
+<b class="fc">&nbsp;            int index = c - 32;</b>
+&nbsp;
+<b class="fc">&nbsp;            if (index &lt; 0) {</b>
+<b class="fc">&nbsp;                throw new IllegalArgumentException(Constants.ErrorMessage.INVALID_CHAR + c);</b>
+&nbsp;            }
+<b class="fc">&nbsp;            if (node.getChildren()[index] == null) {</b>
+<b class="fc">&nbsp;                node.getChildren()[index] = new TrieNode();</b>
+&nbsp;            }
+<b class="fc">&nbsp;            node = node.getChildren()[index];</b>
+&nbsp;        }
+<b class="fc">&nbsp;        node.setEndOfPrefix(true);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String longestMatchingPrefix(String str) {
+<b class="fc">&nbsp;        TrieNode node = root;</b>
+<b class="fc">&nbsp;        StringBuilder prefixBuilder = new StringBuilder();</b>
+<b class="fc">&nbsp;        StringBuilder result = new StringBuilder();</b>
+<b class="fc">&nbsp;        for (char c : str.toCharArray()) {</b>
+<b class="fc">&nbsp;            int index = c - 32;</b>
+<b class="fc">&nbsp;            if (index &lt; 0 || node.getChildren()[index] == null) {</b>
+<b class="fc">&nbsp;                break; // stop if encounter an invalid character</b>
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;            prefixBuilder.append(c);</b>
+<b class="fc">&nbsp;            node = node.getChildren()[index];</b>
+&nbsp;
+<b class="fc">&nbsp;            if (node.isEndOfPrefix) {</b>
+<b class="fc">&nbsp;                result = new StringBuilder(prefixBuilder);</b>
+&nbsp;            }
+&nbsp;        }
+<b class="fc">&nbsp;        return result.toString();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-03 00:23</div>
+</div>
+</body>
+</html>

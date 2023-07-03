@@ -1,0 +1,130 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > PrefixMatcherServiceImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.tc.prefixmatcher.service</a>
+</div>
+
+<h1>Coverage Summary for Class: PrefixMatcherServiceImpl (com.tc.prefixmatcher.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PrefixMatcherServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tc.prefixmatcher.service;
+&nbsp;
+&nbsp;import com.tc.prefixmatcher.model.PrefixMatcher;
+&nbsp;
+&nbsp;public class PrefixMatcherServiceImpl implements PrefixMatcherService {
+&nbsp;
+&nbsp;    private final PrefixMatcher prefixMatcher;
+&nbsp;
+&nbsp;    public PrefixMatcherServiceImpl(PrefixMatcher prefixMatcher) {
+<b class="fc">&nbsp;        super();</b>
+<b class="fc">&nbsp;        this.prefixMatcher = prefixMatcher;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String longestMatchingPrefix(String str, boolean isCaseSensitive) {
+<b class="fc">&nbsp;        if (!isCaseSensitive) {</b>
+<b class="fc">&nbsp;            str = str.toLowerCase();</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return prefixMatcher.longestMatchingPrefix(str);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void addPrefix(String prefix) {
+<b class="fc">&nbsp;        prefixMatcher.addPrefix(prefix);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-07-03 00:07</div>
+</div>
+</body>
+</html>
